@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Lugares Guerra del Pacífico</name>
+
+    <Placemark>
+      <name>Antofagasta</name>
+      <description>
+        <![CDATA[
+          <p>Ciudad clave al inicio de la Guerra del Pacífico.</p>
+          <a href="https://tusitio.com/guerra_pacifico.html" target="_blank">Más información aquí</a>
+        ]]>
+      </description>
+      <Point>
+        <coordinates>-70.4025,-23.6500,0</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>San Pedro de Atacama</name>
+      <description>
+        <![CDATA[
+          <p>Escenario del Combate de Tambillo (1879).</p>
+          <a href="https://tusitio.com/desierto_atacama.html" target="_blank">Más información aquí</a>
+        ]]>
+      </description>
+      <Point>
+        <coordinates>-68.2100,-22.9100,0</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Pisagua</name>
+      <description>
+        <![CDATA[
+          <p>Desembarco chileno estratégico (1879).</p>
+          <a href="https://tusitio.com/guerra_pacifico.html" target="_blank">Ver detalles</a>
+        ]]>
+      </description>
+      <Point>
+        <coordinates>-70.2167,-19.6000,0</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Arica (Morro de Arica)</name>
+      <description>
+        <![CDATA[
+          <p>Batalla decisiva en 1880.</p>
+          <a href="https://tusitio.com/guerra_pacifico.html" target="_blank">Más información</a>
+        ]]>
+      </description>
+      <Point>
+        <coordinates>-70.3133,-18.4783,0</coordinates>
+      </Point>
+    </Placemark>
+
+  </Document>
+</kml>
