@@ -1,2 +1,201 @@
-# mi-sitio-web-sharon
-mapas
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Proyecto Educativo 3D - Geografía</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Luckiest Guy', cursive;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg') no-repeat center center/cover;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .stars {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 2s infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 40px;
+      border-radius: 20px;
+      border: 5px solid #ffcc00;
+      box-shadow: 0px 0px 20px #ffcc00;
+      animation: fadeIn 2s ease;
+    }
+
+    h1 {
+      font-size: 3.5em;
+      margin-bottom: 15px;
+      text-shadow: 3px 3px 8px #000;
+    }
+
+    .subtitle {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+
+    .motivador {
+      font-size: 1.2em;
+      font-style: italic;
+      margin-bottom: 20px;
+      color: #ffcc00;
+      height: 30px;
+    }
+
+    .images {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+    }
+
+    .images img {
+      width: 150px;
+      height: auto;
+      border: 4px solid #fff;
+      border-radius: 15px;
+      box-shadow: 0px 0px 15px #000;
+      transition: transform 0.3s;
+    }
+
+    .images img:hover {
+      transform: scale(1.1);
+    }
+
+    .btn {
+      padding: 15px 30px;
+      background: #ff9800;
+      color: #fff;
+      font-size: 1.3em;
+      border-radius: 40px;
+      text-decoration: none;
+      box-shadow: 0px 0px 10px #000;
+      transition: 0.3s;
+      margin: 10px;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background: #e68900;
+      transform: scale(1.1);
+      box-shadow: 0px 0px 20px #ffcc00;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+
+  <div class="container">
+    <h1 id="titulo"></h1>
+    <p class="subtitle">Explora la Geografía de manera dinámica e innovadora</p>
+    <p id="motivador" class="motivador"></p>
+
+    <div class="images">
+      <img src="mapa.jpg" alt="Mundo">
+      <img src="bolivia.png" alt="Bolivia">
+      <img src="logo.jpg" alt="Escudo del Colegio">
+    </div>
+
+    <a href="https://www.google.com/earth/versions/#earth-pro" target="_blank" class="btn">
+      Ir a Google Earth Pro
+    </a>
+    <button class="btn" onclick="toggleMusic()">🔊 Música</button>
+  </div>
+
+  <audio id="musica" loop>
+    <source src="bensound-slowmotion.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const texto = "Plataforma Educativa 3D";
+    let i = 0;
+    function typeWriter() {
+      if (i < texto.length) {
+        document.getElementById("titulo").innerHTML += texto.charAt(i);
+        i++;
+        setTimeout(typeWriter, 150);
+      }
+    }
+    typeWriter();
+
+    const musica = document.getElementById("musica");
+    musica.volume = 0.2; 
+    let playing = false;
+    function toggleMusic() {
+      if (playing) {
+        musica.pause();
+        playing = false;
+      } else {
+        musica.play();
+        playing = true;
+      }
+    }
+
+    const starsContainer = document.querySelector('.stars');
+    for (let j = 0; j < 100; j++) {
+      let star = document.createElement('div');
+      star.classList.add('star');
+      star.style.top = Math.random() * window.innerHeight + 'px';
+      star.style.left = Math.random() * window.innerWidth + 'px';
+      star.style.animationDuration = (1 + Math.random() * 2) + 's';
+      starsContainer.appendChild(star);
+    }
+
+
+    const frases = [
+      "Aprender explorando 🌍",
+      "La geografía en 3D está en tus manos 📱",
+      "Conoce el mundo desde Bolivia 🇧🇴",
+      "Innovación educativa con tecnología 🚀"
+    ];
+    let index = 0;
+    function cambiarFrase() {
+      document.getElementById("motivador").textContent = frases[index];
+      index = (index + 1) % frases.length;
+    }
+    cambiarFrase();
+    setInterval(cambiarFrase, 3000);
+
+    document.body.addEventListener("mousemove", function(e) {
+      const x = (e.clientX / window.innerWidth - 0.5) * 20;
+      const y = (e.clientY / window.innerHeight - 0.5) * 20;
+      document.body.style.backgroundPosition = `${50 + x}% ${50 + y}%`;
+    });
+  </script>
+</body>
+</html>
